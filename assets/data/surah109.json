@@ -1,0 +1,17 @@
+[
+  { "arabic": "قُلْ", "meaning": "Say", "urdu": "کہہ دیجیے", "surah": 109, "ayah": 1, "word": 1 },
+  { "arabic": "يَا", "meaning": "O", "urdu": "اے", "surah": 109, "ayah": 1, "word": 2 },
+  { "arabic": "أَيُّهَا", "meaning": "you", "urdu": "تم", "surah": 109, "ayah": 1, "word": 3 },
+  { "arabic": "الْكَافِرُونَ", "meaning": "disbelievers", "urdu": "کافرو", "surah": 109, "ayah": 1, "word": 4 },
+  { "arabic": "لَا", "meaning": "not", "urdu": "نہیں", "surah": 109, "ayah": 2, "word": 1 },
+  { "arabic": "أَعْبُدُ", "meaning": "I worship", "urdu": "میں عبادت کرتا ہوں", "surah": 109, "ayah": 2, "word": 2 },
+  { "arabic": "مَا", "meaning": "what", "urdu": "جو", "surah": 109, "ayah": 2, "word": 3 },
+  { "arabic": "تَعْبُدُونَ", "meaning": "you worship", "urdu": "تم عبادت کرتے ہو", "surah": 109, "ayah": 2, "word": 4 },
+  { "arabic": "وَلَا", "meaning": "and not", "urdu": "اور نہیں", "surah": 109, "ayah": 3, "word": 1 },
+  { "arabic": "أَنْتُمْ", "meaning": "you", "urdu": "تم", "surah": 109, "ayah": 3, "word": 2 },
+  { "arabic": "عَابِدُونَ", "meaning": "worshippers", "urdu": "عبادت کرنے والے", "surah": 109, "ayah": 3, "word": 3 },
+  { "arabic": "لَكُمْ", "meaning": "for you", "urdu": "تمہارے لیے", "surah": 109, "ayah": 6, "word": 1 },
+  { "arabic": "دِينُكُمْ", "meaning": "your religion", "urdu": "تمہارا دین", "surah": 109, "ayah": 6, "word": 2 },
+  { "arabic": "وَلِيَ", "meaning": "and for me", "urdu": "اور میرے لیے", "surah": 109, "ayah": 6, "word": 3 },
+  { "arabic": "دِينِ", "meaning": "my religion", "urdu": "میرا دین", "surah": 109, "ayah": 6, "word": 4 }
+]

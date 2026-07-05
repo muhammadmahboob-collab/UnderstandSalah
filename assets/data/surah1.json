@@ -1,0 +1,37 @@
+[
+  { "arabic": "بِسْمِ", "meaning": "In the name", "urdu": "کے نام سے", "surah": 1, "ayah": 1, "word": 1 },
+  { "arabic": "اللَّهِ", "meaning": "of Allah", "urdu": "اللہ", "surah": 1, "ayah": 1, "word": 2 },
+  { "arabic": "الرَّحْمَٰنِ", "meaning": "the Most Gracious", "urdu": "بڑے مہربان", "surah": 1, "ayah": 1, "word": 3 },
+  { "arabic": "الرَّحِيمِ", "meaning": "the Most Merciful", "urdu": "نہایت رحم والے", "surah": 1, "ayah": 1, "word": 4 },
+
+  { "arabic": "الْحَمْدُ", "meaning": "All praise", "urdu": "تمام تعریفیں", "surah": 1, "ayah": 2, "word": 1 },
+  { "arabic": "لِلَّهِ", "meaning": "is for Allah", "urdu": "اللہ کے لیے ہیں", "surah": 1, "ayah": 2, "word": 2 },
+  { "arabic": "رَبِّ", "meaning": "Lord of", "urdu": "رب", "surah": 1, "ayah": 2, "word": 3 },
+  { "arabic": "الْعَالَمِينَ", "meaning": "the worlds", "urdu": "تمام جہانوں کا", "surah": 1, "ayah": 2, "word": 4 },
+
+  { "arabic": "الرَّحْمَٰنِ", "meaning": "the Most Gracious", "urdu": "بڑے مہربان", "surah": 1, "ayah": 3, "word": 1 },
+  { "arabic": "الرَّحِيمِ", "meaning": "the Most Merciful", "urdu": "نہایت رحم والے", "surah": 1, "ayah": 3, "word": 2 },
+
+  { "arabic": "مَالِكِ", "meaning": "Master of", "urdu": "مالک", "surah": 1, "ayah": 4, "word": 1 },
+  { "arabic": "يَوْمِ", "meaning": "the Day of", "urdu": "دن کا", "surah": 1, "ayah": 4, "word": 2 },
+  { "arabic": "الدِّينِ", "meaning": "Judgment", "urdu": "بدلے کے", "surah": 1, "ayah": 4, "word": 3 },
+
+  { "arabic": "إِيَّاكَ", "meaning": "You alone", "urdu": "تیری ہی", "surah": 1, "ayah": 5, "word": 1 },
+  { "arabic": "نَعْبُدُ", "meaning": "we worship", "urdu": "ہم عبادت کرتے ہیں", "surah": 1, "ayah": 5, "word": 2 },
+  { "arabic": "وَإِيَّاكَ", "meaning": "and You alone", "urdu": "اور تجھ ہی سے", "surah": 1, "ayah": 5, "word": 3 },
+  { "arabic": "نَسْتَعِينُ", "meaning": "we ask for help", "urdu": "ہم مدد مانگتے ہیں", "surah": 1, "ayah": 5, "word": 4 },
+
+  { "arabic": "اهْدِنَا", "meaning": "Guide us", "urdu": "ہمیں دکھا", "surah": 1, "ayah": 6, "word": 1 },
+  { "arabic": "الصِّرَاطَ", "meaning": "to the path", "urdu": "راستہ", "surah": 1, "ayah": 6, "word": 2 },
+  { "arabic": "الْمُسْتَقِيمَ", "meaning": "the straight", "urdu": "سیدھا", "surah": 1, "ayah": 6, "word": 3 },
+
+  { "arabic": "صِرَاطَ", "meaning": "The path of", "urdu": "راستہ", "surah": 1, "ayah": 7, "word": 1 },
+  { "arabic": "الَّذِينَ", "meaning": "those", "urdu": "ان لوگوں کا جن پر", "surah": 1, "ayah": 7, "word": 2 },
+  { "arabic": "أَنْعَمْتَ", "meaning": "You have favored", "urdu": "تو نے انعام کیا", "surah": 1, "ayah": 7, "word": 3 },
+  { "arabic": "عَلَيْهِمْ", "meaning": "upon them", "urdu": "ان پر", "surah": 1, "ayah": 7, "word": 4 },
+  { "arabic": "غَيْرِ", "meaning": "not", "urdu": "نہ کہ", "surah": 1, "ayah": 7, "word": 5 },
+  { "arabic": "الْمَغْضُوبِ", "meaning": "those who earned anger", "urdu": "جن پر غضب کیا گیا", "surah": 1, "ayah": 7, "word": 6 },
+  { "arabic": "عَلَيْهِمْ", "meaning": "upon them", "urdu": "ان پر", "surah": 1, "ayah": 7, "word": 7 },
+  { "arabic": "وَلَا", "meaning": "and not", "urdu": "اور نہ", "surah": 1, "ayah": 7, "word": 8 },
+  { "arabic": "الضَّالِّينَ", "meaning": "those who are astray", "urdu": "گمراہوں کا", "surah": 1, "ayah": 7, "word": 9 }
+]

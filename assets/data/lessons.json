@@ -1,0 +1,113 @@
+[
+  {
+    "id": 10,
+    "title": "Surah Al-Fatihah",
+    "arabicTitle": "سورة الفاتحة",
+    "subtitle": "Word by Word Quiz",
+    "category": "Quran",
+    "fileName": "surah1.json",
+    "totalWords": 29,
+    "icon": "menu_book",
+    "sequential": true
+  },
+  {
+    "id": 1,
+    "title": "Surah Al-Kafirun",
+    "arabicTitle": "سورة الكافرون",
+    "subtitle": "Word by Word Quiz",
+    "category": "Quran",
+    "fileName": "surah109.json",
+    "totalWords": 15,
+    "icon": "menu_book",
+    "sequential": true
+  },
+  {
+    "id": 6,
+    "title": "Surah Al-Ikhlas",
+    "arabicTitle": "سورة الإخلاص",
+    "subtitle": "Word by Word Quiz",
+    "category": "Quran",
+    "fileName": "surah112.json",
+    "totalWords": 15,
+    "icon": "menu_book",
+    "sequential": true
+  },
+  {
+    "id": 7,
+    "title": "Surah Al-Falaq",
+    "arabicTitle": "سورة الفلق",
+    "subtitle": "Word by Word Quiz",
+    "category": "Quran",
+    "fileName": "surah113.json",
+    "totalWords": 23,
+    "icon": "menu_book",
+    "sequential": true
+  },
+  {
+    "id": 8,
+    "title": "Surah An-Nas",
+    "arabicTitle": "سورة الناس",
+    "subtitle": "Word by Word Quiz",
+    "category": "Quran",
+    "fileName": "surah114.json",
+    "totalWords": 20,
+    "icon": "menu_book",
+    "sequential": true
+  },
+  {
+    "id": 5,
+    "title": "Al-Istiftah",
+    "arabicTitle": "اسْمُكَ",
+    "subtitle": "Word by Word Quiz",
+    "category": "Salah",
+    "lesson": "Al-Istiftah (Opening Dua)",
+    "fileName": "al-Istiftah.json",
+    "totalWords": 10,
+    "icon": "hands",
+    "sequential": true
+  },
+  {
+    "id": 2,
+    "title": "Tashahhud",
+    "arabicTitle": "التَّحِيَّاتُ",
+    "subtitle": "Word by Word Quiz",
+    "category": "Salah",
+    "fileName": "tashahhud.json",
+    "totalWords": 28,
+    "icon": "mosque",
+    "sequential": true
+  },
+  {
+    "id": 3,
+    "title": "Durood Ibrahim",
+    "arabicTitle": "الصلاة الإبراهيمية",
+    "subtitle": "Word by Word Quiz",
+    "category": "Salah",
+    "fileName": "durood_ibrahim.json",
+    "totalWords": 34,
+    "icon": "mosque",
+    "sequential": true
+  },
+  {
+    "id": 9,
+    "title": "Dua-e-Masoora",
+    "arabicTitle": "دعاء مأثور",
+    "subtitle": "Word by Word Quiz",
+    "category": "Salah",
+    "fileName": "dua_masoora.json",
+    "totalWords": 21,
+    "icon": "hands",
+    "sequential": true
+  },
+  {
+    "id": 4,
+    "title": "Dua Qunoot",
+    "arabicTitle": "دعاء القنوت",
+    "subtitle": "Word by Word Quiz",
+    "category": "Salah",
+    "fileName": "dua_qunoot.json",
+    "totalWords": 36,
+    "icon": "hands",
+    "sequential": true
+  }
+]
