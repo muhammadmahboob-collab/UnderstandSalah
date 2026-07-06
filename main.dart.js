@@ -36078,7 +36078,7 @@ return A.w8(null,r,A.a0d(!0,A.aeE(A.c([q,new A.c5(B.hz,A.dT(o,B.ar,B.A,B.S),null
 Vr(a){var s=null,r=a.b,q=a.d
 r=A.c([r,q==null?r:q],t.t_)
 q=t.p
-return A.lv(s,A.eE(A.c([A.ahp(B.j.lU(0.25),B.C3,28),B.wv,A.fp(A.dT(A.c([B.P7,B.cG,A.bn("Master Quranic Arabic, word by word.",A.cQ(s,s,B.j.lU(0.9),s,s,s,s,s,s,s,s,14,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s)],q),B.ar,B.A,B.S),1),A.aes(s,s,B.BZ,s,s,new A.a7E(this),s,s,"Progress Report"),A.aes(s,s,B.C6,s,s,new A.a7F(this),s,s,s)],q),B.P,B.A,B.S,0,s),B.z,s,new A.d8(s,s,s,B.xO,s,new A.oA(B.cT,B.xB,B.fu,r,s,s),B.aC),s,s,s,s,B.Bl,s,s,s)},
+return A.lv(s,A.eE(A.c([A.ahp(B.j.lU(0.25),B.C3,28),B.wv,A.fp(A.dT(A.c([B.Pa,B.cG,A.bn("Master Quranic Arabic, word by word.",A.cQ(s,s,B.j.lU(0.9),s,s,s,s,s,s,s,s,14,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s)],q),B.ar,B.A,B.S),1),A.aes(s,s,B.BZ,s,s,new A.a7E(this),s,s,"Progress Report"),A.aes(s,s,B.C6,s,s,new A.a7F(this),s,s,s)],q),B.P,B.A,B.S,0,s),B.z,s,new A.d8(s,s,s,B.xO,s,new A.oA(B.cT,B.xB,B.fu,r,s,s),B.aC),s,s,s,s,B.Bl,s,s,s)},
 Vx(a){var s=this,r=null,q=J.ah0(s.f,0,new A.a7G()),p=J.ah0(s.f,0,new A.a7H(s)),o=J.Pb(s.f,new A.a7I(s)).gD(0),n=q===0?0:p/q,m=A.fF(20),l=A.c([new A.dl(0,B.e5,B.l.lU(0.06),B.GC,12)],t.sq),k=t.p
 return A.lv(r,A.dT(A.c([A.eE(A.c([A.U5(B.BN,a.b,r,r),B.ww,B.Pf],k),B.P,B.A,B.S,0,r),B.wx,A.eE(A.c([A.fp(s.JB(A.l(p)+" / "+A.l(q),"Words Mastered",a),1),A.fp(s.JB(""+o+" / "+J.cX(s.f),"Lessons Started",a),1)],k),B.P,B.A,B.S,0,r),B.fo,A.C1(A.fF(8),A.DW(8,n))],k),B.ar,B.A,B.S),B.z,r,new A.d8(a.k2,r,r,m,l,r,B.aC),r,r,r,r,B.bM,r,r,r)},
 JB(a,b,c){var s=null
@@ -36202,7 +36202,7 @@ for(l=m.gabp(),k=l.length,n=n.b,j=0;j<l.length;l.length===k||(0,A.t)(l),++j)f.pu
 s=r.is(s,new A.Zx(h))
 i=A.U(s,s.$ti.h("p.E"))
 s=A.Bu(!0,B.P4)
-r=A.c([B.Pa,B.cG,A.bn("Words you've missed more than once, across every lesson.",A.cQ(g,g,B.br,g,g,g,g,g,g,g,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,g,g),g,g),B.fo],t.p)
+r=A.c([B.P9,B.cG,A.bn("Words you've missed more than once, across every lesson.",A.cQ(g,g,B.br,g,g,g,g,g,g,g,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,g,g),g,g),B.fo],t.p)
 if(f.length===0)r.push(h.Gy("No repeated mistakes yet \u2014 nice work!"))
 else B.b.J(r,new A.a_(f,new A.Zy(),t.Cb))
 r.push(B.jp)
@@ -36459,7 +36459,7 @@ A.Mu.prototype={
 gIT(){var s=this.d
 return s===$?this.d=this.a.c:s},
 K(a){var s=null,r=t.p
-return A.w8(A.Bu(!0,B.P_),s,new A.c5(B.bM,A.dT(A.c([B.P8,B.jq,B.Pb,B.jn,A.rK(new A.c5(B.lg,A.dT(A.c([A.bn("\u0627\u0644\u0652\u062d\u064e\u0645\u0652\u062f\u064f \u0644\u0650\u0644\u064e\u0651\u0647\u0650",A.cQ(s,s,s,s,s,s,s,s,"NotoNaskhArabic",s,s,36,s,s,B.U,s,s,!0,s,s,s,s,s,s,s,s),s,s),B.jq,B.P1],r),B.P,B.A,B.S),s),s,s),B.jo,A.eE(A.c([B.C_,A.fp(new A.wF(this.gIT(),new A.aaO(this),0.85,1.3,9,""+B.c.an(this.gIT()*100)+"%",s),1),B.C1],r),B.P,B.A,B.S,0,s)],r),B.ar,B.A,B.S),s))}}
+return A.w8(A.Bu(!0,B.P_),s,new A.c5(B.bM,A.dT(A.c([B.P7,B.jq,B.Pb,B.jn,A.rK(new A.c5(B.lg,A.dT(A.c([A.bn("\u0627\u0644\u0652\u062d\u064e\u0645\u0652\u062f\u064f \u0644\u0650\u0644\u064e\u0651\u0647\u0650",A.cQ(s,s,s,s,s,s,s,s,"NotoNaskhArabic",s,s,36,s,s,B.U,s,s,!0,s,s,s,s,s,s,s,s),s,s),B.jq,B.P1],r),B.P,B.A,B.S),s),s,s),B.jo,A.eE(A.c([B.C_,A.fp(new A.wF(this.gIT(),new A.aaO(this),0.85,1.3,9,""+B.c.an(this.gIT()*100)+"%",s),1),B.C1],r),B.P,B.A,B.S,0,s)],r),B.ar,B.A,B.S),s))}}
 A.aaO.prototype={
 $1(a){var s=this.a
 s.ap(new A.aaN(s,a))
@@ -72990,8 +72990,8 @@ B.H1=new A.EB(1,"rootOverlay")
 B.dT=new A.j(!0,null,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Pe=new A.cI("Try Again",null,B.dT,null,null,null)
 B.H2=new A.c5(B.hy,B.Pe,null)
-B.P9=new A.cI("Back to Lessons",null,B.dT,null,null,null)
-B.H3=new A.c5(B.hy,B.P9,null)
+B.P8=new A.cI("Back to Lessons",null,B.dT,null,null,null)
+B.H3=new A.c5(B.hy,B.P8,null)
 B.Bf=new A.b1(0,2,0,0)
 B.C5=new A.dI(B.lz,16,B.qV,null,null)
 B.H4=new A.c5(B.Bf,B.C5,null)
@@ -73631,10 +73631,10 @@ B.P3=new A.cI("Words to review",null,B.fs,null,null,null)
 B.P4=new A.cI("Progress Report",null,null,null,null,null)
 B.P5=new A.cI("Next",null,null,null,null,null)
 B.P6=new A.cI("Score Trend",null,B.fs,null,null,null)
+B.P7=new A.cI("Text Size",null,B.jw,null,null,null)
+B.P9=new A.cI("Trouble Words",null,B.fs,null,null,null)
 B.Ne=new A.j(!0,B.j,null,null,null,null,26,B.U,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.P7=new A.cI("Assalamu Alaikum",null,B.Ne,null,null,null)
-B.P8=new A.cI("Text Size",null,B.jw,null,null,null)
-B.Pa=new A.cI("Trouble Words",null,B.fs,null,null,null)
+B.Pa=new A.cI("Understand Salah",null,B.Ne,null,null,null)
 B.Pb=new A.cI("Adjust how large Arabic and English text appears throughout the app.",null,B.jx,null,null,null)
 B.Pc=new A.cI("Previous",null,null,null,null,null)
 B.Pd=new A.cI("Tap to reveal meaning",null,B.jx,null,null,null)
