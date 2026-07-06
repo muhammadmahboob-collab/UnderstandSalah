@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Assalamu Alaikum",
+                  "Understand Salah",
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
