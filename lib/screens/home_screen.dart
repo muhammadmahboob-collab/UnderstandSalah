@@ -9,6 +9,7 @@ import 'flashcard_screen.dart';
 import 'progress_report_screen.dart';
 import 'quiz_screen.dart';
 import 'settings_screen.dart';
+import 'word_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final double textScale;
@@ -482,6 +483,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         icon: const Icon(Icons.style, size: 16),
                         label: const Text("Flashcards"),
+                      ),
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => WordListScreen(
+                                lessonFile: lesson.fileName,
+                                title: lesson.title,
+                              ),
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.list_alt, size: 16),
+                        label: const Text("Word List"),
                       ),
                       if (reviewWords.isNotEmpty)
                         TextButton.icon(
