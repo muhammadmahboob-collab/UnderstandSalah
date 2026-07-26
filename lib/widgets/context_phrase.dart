@@ -19,13 +19,44 @@ class ContextPhrase extends StatelessWidget {
   static const double _targetFontSize = 48;
   static const double _smallFontSize = 20;
 
+  // Caps how many surrounding words are shown (including the target), so a
+  // single very long ayah (e.g. Ayat-ul-Kursi's 50 words) doesn't push the
+  // quiz answers off-screen. Short lessons are unaffected since they're
+  // already within this window.
+  static const int _maxWindow = 10;
+
   @override
   Widget build(BuildContext buildContext) {
     final colorScheme = Theme.of(buildContext).colorScheme;
 
-    final before = context.words.sublist(0, context.index);
+    final allBefore = context.words.sublist(0, context.index);
     final target = context.words[context.index];
-    final after = context.words.sublist(context.index + 1);
+    final allAfter = context.words.sublist(context.index + 1);
+
+    final remaining = _maxWindow - 1;
+    var leftBudget = remaining ~/ 2;
+    var rightBudget = remaining - leftBudget;
+
+    var leftCount = allBefore.length < leftBudget ? allBefore.length : leftBudget;
+    var rightCount = allAfter.length < rightBudget ? allAfter.length : rightBudget;
+
+    final leftUnused = leftBudget - leftCount;
+    if (leftUnused > 0) {
+      rightCount = (rightCount + leftUnused) > allAfter.length
+          ? allAfter.length
+          : rightCount + leftUnused;
+    }
+    final rightUnused = rightBudget - rightCount;
+    if (rightUnused > 0) {
+      leftCount = (leftCount + rightUnused) > allBefore.length
+          ? allBefore.length
+          : leftCount + rightUnused;
+    }
+
+    final before = allBefore.sublist(allBefore.length - leftCount);
+    final after = allAfter.sublist(0, rightCount);
+    final beforeTruncated = leftCount < allBefore.length;
+    final afterTruncated = rightCount < allAfter.length;
 
     final smallStyle = AppTextStyles.arabicWord(
       fontSize: _smallFontSize,
@@ -43,7 +74,8 @@ class ContextPhrase extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                before.map((w) => w.arabic).join(' '),
+                (beforeTruncated ? '… ' : '') +
+                    before.map((w) => w.arabic).join(' '),
                 textAlign: TextAlign.left,
                 textDirection: TextDirection.rtl,
                 style: smallStyle,
@@ -55,7 +87,8 @@ class ContextPhrase extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                after.map((w) => w.arabic).join(' '),
+                after.map((w) => w.arabic).join(' ') +
+                    (afterTruncated ? ' …' : ''),
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
                 style: smallStyle,
