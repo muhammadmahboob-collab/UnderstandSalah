@@ -9,6 +9,11 @@ class Lesson {
   final String icon;
   final bool sequential;
 
+  /// If set, long Quran lessons offer a "pick a verse range" screen before
+  /// the quiz instead of quizzing on the whole lesson at once — this is
+  /// how many verses (ayahs) are grouped per range.
+  final int? versesPerRange;
+
   const Lesson({
     required this.id,
     required this.title,
@@ -19,7 +24,10 @@ class Lesson {
     required this.totalWords,
     required this.icon,
     this.sequential = false,
+    this.versesPerRange,
   });
+
+  bool get hasVerseRanges => versesPerRange != null;
 
   factory Lesson.fromJson(Map<String, dynamic> json) {
     return Lesson(
@@ -32,6 +40,7 @@ class Lesson {
       totalWords: json['totalWords'],
       icon: json['icon'],
       sequential: json['sequential'] ?? false,
+      versesPerRange: json['versesPerRange'],
     );
   }
 
@@ -46,6 +55,7 @@ class Lesson {
       'totalWords': totalWords,
       'icon': icon,
       'sequential': sequential,
+      'versesPerRange': versesPerRange,
     };
   }
 }

@@ -9,6 +9,7 @@ import 'flashcard_screen.dart';
 import 'progress_report_screen.dart';
 import 'quiz_screen.dart';
 import 'settings_screen.dart';
+import 'verse_range_screen.dart';
 import 'word_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -72,15 +73,24 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _openLesson(Lesson lesson, {List<String>? reviewWords}) async {
+    final useRangePicker = reviewWords == null && lesson.hasVerseRanges;
+
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => QuizScreen(
-          lessonFile: lesson.fileName,
-          title: lesson.title,
-          sequential: lesson.sequential,
-          reviewWords: reviewWords,
-        ),
+        builder: (_) => useRangePicker
+            ? VerseRangeScreen(
+                lessonFile: lesson.fileName,
+                title: lesson.title,
+                sequential: lesson.sequential,
+                versesPerRange: lesson.versesPerRange!,
+              )
+            : QuizScreen(
+                lessonFile: lesson.fileName,
+                title: lesson.title,
+                sequential: lesson.sequential,
+                reviewWords: reviewWords,
+              ),
       ),
     );
 
@@ -474,10 +484,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => FlashcardScreen(
-                                lessonFile: lesson.fileName,
-                                title: lesson.title,
-                              ),
+                              builder: (_) => lesson.hasVerseRanges
+                                  ? VerseRangeScreen(
+                                      lessonFile: lesson.fileName,
+                                      title: lesson.title,
+                                      sequential: lesson.sequential,
+                                      versesPerRange: lesson.versesPerRange!,
+                                      target: VerseRangeTarget.flashcards,
+                                    )
+                                  : FlashcardScreen(
+                                      lessonFile: lesson.fileName,
+                                      title: lesson.title,
+                                    ),
                             ),
                           );
                         },

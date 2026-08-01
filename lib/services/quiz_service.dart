@@ -12,7 +12,7 @@ class QuizService {
   List<VocabularyWord> _words = [];
   List<int> _remainingQuestions = [];
   bool _sequential = false;
-  Set<String>? _restrictedToWords;
+  bool Function(VocabularyWord)? _wordFilter;
   Set<String>? _priorityWords;
   int _totalQuestions = 0;
 
@@ -39,7 +39,7 @@ class QuizService {
 
     _words = jsonData.map((e) => VocabularyWord.fromJson(e)).toList();
     _sequential = sequential;
-    _restrictedToWords = null;
+    _wordFilter = null;
     _priorityWords = priorityWords;
 
     _resetQuestionOrder();
@@ -49,17 +49,26 @@ class QuizService {
   /// a "review missed words" session), while still using the full lesson
   /// vocabulary to generate multiple-choice distractors.
   void restrictToWords(Iterable<String> arabicWords) {
-    _restrictedToWords = arabicWords.toSet();
+    final wanted = arabicWords.toSet();
+    _wordFilter = (w) => wanted.contains(w.arabic);
+    _resetQuestionOrder();
+  }
+
+  /// Restricts the quiz to only ask about words from ayahs [startAyah]
+  /// through [endAyah] (inclusive), e.g. for a "verses 6-10" session of a
+  /// long surah, while still using the full lesson vocabulary to generate
+  /// multiple-choice distractors.
+  void restrictToAyahRange(int startAyah, int endAyah) {
+    _wordFilter = (w) =>
+        w.ayah != null && w.ayah! >= startAyah && w.ayah! <= endAyah;
     _resetQuestionOrder();
   }
 
   void _resetQuestionOrder() {
     Iterable<int> indices = List.generate(_words.length, (index) => index);
 
-    if (_restrictedToWords != null) {
-      indices = indices.where(
-        (i) => _restrictedToWords!.contains(_words[i].arabic),
-      );
+    if (_wordFilter != null) {
+      indices = indices.where((i) => _wordFilter!(_words[i]));
     }
 
     final indexList = indices.toList();
@@ -67,7 +76,7 @@ class QuizService {
     if (_sequential) {
       // getNextQuestion() pops from the end, so reverse to ask in order.
       _remainingQuestions = indexList.reversed.toList();
-    } else if (_restrictedToWords == null &&
+    } else if (_wordFilter == null &&
         _priorityWords != null &&
         _priorityWords!.isNotEmpty) {
       final priority = indexList

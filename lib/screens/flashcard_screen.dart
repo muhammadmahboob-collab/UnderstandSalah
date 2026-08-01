@@ -13,10 +13,18 @@ class FlashcardScreen extends StatefulWidget {
   final String lessonFile;
   final String title;
 
+  /// If set, only shows flashcards for words from ayahs [ayahRangeStart]
+  /// through [ayahRangeEnd] (inclusive) — used for long surahs studied a
+  /// few verses at a time.
+  final int? ayahRangeStart;
+  final int? ayahRangeEnd;
+
   const FlashcardScreen({
     super.key,
     required this.lessonFile,
     required this.title,
+    this.ayahRangeStart,
+    this.ayahRangeEnd,
   });
 
   @override
@@ -40,8 +48,20 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
   Future<void> _load() async {
     await _quizService.loadLesson(widget.lessonFile);
 
+    var words = _quizService.words;
+    if (widget.ayahRangeStart != null) {
+      words = words
+          .where(
+            (w) =>
+                w.ayah != null &&
+                w.ayah! >= widget.ayahRangeStart! &&
+                w.ayah! <= widget.ayahRangeEnd!,
+          )
+          .toList();
+    }
+
     setState(() {
-      _words = _quizService.words;
+      _words = words;
       _loading = false;
     });
   }

@@ -17,15 +17,23 @@ class QuizScreen extends StatefulWidget {
   /// reviewing previously missed words) instead of the full lesson.
   final List<String>? reviewWords;
 
+  /// If set, restricts the quiz to just this range of verses (ayahs) —
+  /// used for long surahs quizzed a few verses at a time.
+  final int? ayahRangeStart;
+  final int? ayahRangeEnd;
+
   const QuizScreen({
     super.key,
     required this.lessonFile,
     required this.title,
     this.sequential = false,
     this.reviewWords,
+    this.ayahRangeStart,
+    this.ayahRangeEnd,
   });
 
   bool get isReview => reviewWords != null;
+  bool get isRangedQuiz => ayahRangeStart != null;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -59,7 +67,7 @@ class _QuizScreenState extends State<QuizScreen> {
   Future<void> _loadLesson() async {
     // Struggling words (missed and not yet mastered) are weighted to come
     // up earlier in the quiz, so they get reinforced sooner.
-    final priorityWords = widget.isReview
+    final priorityWords = (widget.isReview || widget.isRangedQuiz)
         ? null
         : (await _progressService.loadProgress(
             widget.lessonFile,
@@ -73,6 +81,11 @@ class _QuizScreenState extends State<QuizScreen> {
 
     if (widget.isReview) {
       _quizService.restrictToWords(widget.reviewWords!);
+    } else if (widget.isRangedQuiz) {
+      _quizService.restrictToAyahRange(
+        widget.ayahRangeStart!,
+        widget.ayahRangeEnd!,
+      );
     }
 
     _nextQuestion();
@@ -157,9 +170,10 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _showResult() async {
-    // A review session doesn't count toward the lesson's completion stats,
-    // since it only covers a subset of the lesson's words.
-    final progress = widget.isReview
+    // A review or ranged (partial-verses) session doesn't count toward the
+    // lesson's completion stats, since it only covers a subset of the
+    // lesson's words.
+    final progress = (widget.isReview || widget.isRangedQuiz)
         ? await _progressService.loadProgress(widget.lessonFile)
         : await _progressService.recordQuizCompletion(
             lessonFile: widget.lessonFile,
