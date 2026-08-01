@@ -30,7 +30,8 @@
     "fileName": "surah67.json",
     "totalWords": 333,
     "icon": "menu_book",
-    "sequential": true
+    "sequential": true,
+    "versesPerRange": 5
   },
   {
     "id": 1,
