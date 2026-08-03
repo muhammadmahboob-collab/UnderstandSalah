@@ -11,22 +11,41 @@ class ResultScreen extends StatelessWidget {
   final int totalQuestions;
   final LessonProgress progress;
 
+  /// If set, this was a partial session covering only these Arabic words
+  /// (e.g. a "verses 1-5" chunk of a long surah) — stats and the missed-words
+  /// list are scoped to just these words instead of the whole lesson.
+  final List<String>? scopeWordsArabic;
+
   const ResultScreen({
     super.key,
     required this.title,
     required this.score,
     required this.totalQuestions,
     required this.progress,
+    this.scopeWordsArabic,
   });
+
+  bool get _isScoped => scopeWordsArabic != null;
 
   @override
   Widget build(BuildContext context) {
-    final wordsToReview = progress.strugglingWords
-      ..sort((a, b) => b.wrongCount.compareTo(a.wrongCount));
+    final scope = scopeWordsArabic?.toSet();
+
+    final wordsToReview =
+        (scope == null
+            ? progress.strugglingWords
+            : progress.strugglingWords.where((w) => scope.contains(w.arabic)).toList())
+          ..sort((a, b) => b.wrongCount.compareTo(a.wrongCount));
+
+    final masteredCount = scope == null
+        ? progress.masteredWordCount
+        : progress.words.values
+              .where((w) => scope.contains(w.arabic) && w.isMastered)
+              .length;
 
     final masteredFraction = totalQuestions == 0
         ? 0.0
-        : progress.masteredWordCount / totalQuestions;
+        : masteredCount / totalQuestions;
 
     return Scaffold(
       appBar: AppBar(title: Text(title), centerTitle: true),
@@ -55,19 +74,21 @@ class ResultScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(18),
                 child: Column(
                   children: [
-                    _statRow(
-                      "Best score for this lesson",
-                      "${progress.bestScore} / $totalQuestions",
-                    ),
-                    const SizedBox(height: 10),
-                    _statRow(
-                      "Times you've completed this lesson",
-                      "${progress.timesCompleted}",
-                    ),
-                    const SizedBox(height: 10),
+                    if (!_isScoped) ...[
+                      _statRow(
+                        "Best score for this lesson",
+                        "${progress.bestScore} / $totalQuestions",
+                      ),
+                      const SizedBox(height: 10),
+                      _statRow(
+                        "Times you've completed this lesson",
+                        "${progress.timesCompleted}",
+                      ),
+                      const SizedBox(height: 10),
+                    ],
                     _statRow(
                       "Words mastered",
-                      "${progress.masteredWordCount} / $totalQuestions",
+                      "$masteredCount / $totalQuestions",
                     ),
                     const SizedBox(height: 10),
                     ClipRRect(

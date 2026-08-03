@@ -35,6 +35,9 @@ class QuizScreen extends StatefulWidget {
   bool get isReview => reviewWords != null;
   bool get isRangedQuiz => ayahRangeStart != null;
 
+  bool _inRange(int? ayah) =>
+      ayah != null && ayah >= ayahRangeStart! && ayah <= ayahRangeEnd!;
+
   @override
   State<QuizScreen> createState() => _QuizScreenState();
 }
@@ -169,6 +172,18 @@ class _QuizScreenState extends State<QuizScreen> {
     return Colors.grey;
   }
 
+  /// Arabic words that belong to the current verse range, if this is a
+  /// ranged (partial-surah) session — used to keep "words to review" and
+  /// stats scoped to just this chunk instead of the whole lesson.
+  List<String>? get _rangeWordsArabic {
+    if (!widget.isRangedQuiz) return null;
+    return _quizService.words
+        .where((w) => widget._inRange(w.ayah))
+        .map((w) => w.arabic)
+        .toSet()
+        .toList();
+  }
+
   Future<void> _showResult() async {
     // A review or ranged (partial-verses) session doesn't count toward the
     // lesson's completion stats, since it only covers a subset of the
@@ -182,6 +197,8 @@ class _QuizScreenState extends State<QuizScreen> {
 
     if (!mounted) return;
 
+    final rangeWords = _rangeWordsArabic;
+
     final action = await Navigator.push<ResultAction>(
       context,
       MaterialPageRoute(
@@ -190,6 +207,7 @@ class _QuizScreenState extends State<QuizScreen> {
           score: _score,
           totalQuestions: _quizService.totalQuestions,
           progress: progress,
+          scopeWordsArabic: rangeWords,
         ),
       ),
     );
@@ -210,7 +228,11 @@ class _QuizScreenState extends State<QuizScreen> {
         break;
 
       case ResultAction.reviewMissed:
-        final missedWords = progress.strugglingWordsArabic;
+        final missedWords = rangeWords == null
+            ? progress.strugglingWordsArabic
+            : progress.strugglingWordsArabic
+                  .where((w) => rangeWords.contains(w))
+                  .toList();
 
         Navigator.pushReplacement(
           context,
