@@ -28,3 +28,33 @@ WordContext contextFor(List<VocabularyWord> allWords, VocabularyWord target) {
 
   return WordContext(words: group, index: index < 0 ? 0 : index);
 }
+
+/// A single ayah/line group, in the order its words appear.
+class WordGroup {
+  final int number;
+  final List<VocabularyWord> words;
+
+  const WordGroup({required this.number, required this.words});
+}
+
+/// Groups [words] into consecutive ayah/line phrases, preserving file order
+/// — used to lay out a lesson's full word list the way a Quran mushaf page
+/// flows, with a marker at the end of each verse.
+List<WordGroup> groupIntoPhrases(List<VocabularyWord> words) {
+  final groups = <WordGroup>[];
+  String? currentKey;
+
+  for (final w in words) {
+    final number = w.ayah ?? w.line ?? 0;
+    final key = w.ayah != null ? 'ayah:${w.surah}:${w.ayah}' : 'line:${w.line}';
+
+    if (key != currentKey) {
+      groups.add(WordGroup(number: number, words: []));
+      currentKey = key;
+    }
+
+    groups.last.words.add(w);
+  }
+
+  return groups;
+}
